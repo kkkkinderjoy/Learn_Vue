@@ -1,26 +1,40 @@
+<!-- template > html코드 -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <div class="name">{{ name }}</div> -->
+  <div class="name">{{ greeting(name) }}</div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+<!-- javascript코드 -->
+<!-- 컴포지션 API / 옵션 API-->
+<script>
+  export default {
+    setup(){
+      const name = "HYJ_s2";
+      const greeting= (name)=>{
+        return 'Hello, ' + name;
+      }
+     return {
+      name,
+      greeting
+     }
+    }
   }
-}
+
 </script>
 
+
+<!-- css코드 -->
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .name{
+    color: gray;
+    font-size: 4rem;
+
+  }
 </style>
+
+<!-- vue2 vs vue3
+> vue2 : template 안에서 div 하나로 전체를 감싸줌(프레그먼트같은 개념인듯.) >>> vue3에서는 안써도됨
+>  
+
+-->
